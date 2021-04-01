@@ -62,8 +62,8 @@ npm run dev
 - To create a production build set the environment variable NODE_ENV = "production" and run the below commands
 
 ```sh
+npm run build
 npm run start
-node dist/index.js
 ```
 
 # Future enhancements
