@@ -1,0 +1,18 @@
+.input-field {
+  height: 45px;
+  width: 350px;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding-left: 10px;
+  border-radius: 5px;
+  background-color: #333;
+
+  @media only screen and (max-width: 768px) {
+    width: 85%;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,0 +1,24 @@
+.image-card {
+  width: 350px;
+  height: 60px;
+  display: flex;
+
+  img {
+    width: 50px;
+    margin: auto 0;
+    cursor: pointer;
+  }
+
+  .card-content {
+    margin: 8px;
+
+    h3 {
+      margin: 0;
+      text-align: unset;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

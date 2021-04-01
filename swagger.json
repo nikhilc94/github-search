@@ -1,0 +1,137 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "A Single Page App to search users/repositories/issues on GitHub",
+    "version": "1.0.0",
+    "title": "GitHub Search API",
+    "contact": {
+      "email": "nikhilchelani.94@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "schemes": ["http"],
+  "host": "localhost:5000",
+  "basePath": "/",
+  "paths": {
+    "/api/search": {
+      "post": {
+        "summary": "GitHub search API",
+        "description": "API to search for users/repos/issues on GitHub.",
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "search request",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "users"
+                },
+                "text": {
+                  "type": "string",
+                  "default": "Nikhil"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/SearchSuccess"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/SearchFail"
+            }
+          }
+        }
+      }
+    },
+    "/api/clear-cache": {
+      "get": {
+        "summary": "Endpoint to clear the redis cache",
+        "description": "Endpoint to clear the redis cache",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/CacheClearSuccess"
+            }
+          },
+          "500": {
+            "description": "Fail response",
+            "schema": {
+              "$ref": "#/definitions/CacheClearFail"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SearchSuccess": {
+      "type": "object",
+      "properties": {
+        "total_count": {
+          "type": "integer",
+          "default": 1
+        },
+        "incomplete_results": {
+          "type": "boolean",
+          "default": false
+        },
+        "items": {
+          "type": "array",
+          "default": [
+            {
+              "login": "nikhil",
+              "html_url": "https://github.com/nikhil",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4000697?v=4"
+            }
+          ]
+        }
+      }
+    },
+    "SearchFail": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "default": "Invalid search type/search string!"
+        }
+      }
+    },
+    "CacheClearSuccess": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "default": "Redis cache cleared!"
+        }
+      }
+    },
+    "CacheClearFail": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "default": "Unable to clear redis cache!"
+        }
+      }
+    }
+  }
+}

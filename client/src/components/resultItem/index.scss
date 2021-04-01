@@ -1,0 +1,81 @@
+.card {
+  width: 85%;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #31394d;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  img {
+    width: 45%;
+    opacity: 0.8;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  .card-name {
+    min-height: 40px;
+    text-align: center;
+    word-break: break-all;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-evenly;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+
+    .fas {
+      margin-right: 5px;
+    }
+
+    .fa-star {
+      color: #cccc00;
+    }
+
+    .fa-code-branch {
+      color: coral;
+    }
+  }
+
+  .login-name {
+    margin: 7px 0;
+    height: 25px;
+    color: #b7b8c0;
+    text-align: center;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  button {
+    width: 60%;
+    border: none;
+    height: 40px;
+    color: #fff;
+    display: block;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto 30px;
+    border-radius: 30px;
+    background: linear-gradient(to top right, #8162ce, #f54ba5);
+    box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}
